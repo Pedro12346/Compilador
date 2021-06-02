@@ -1,0 +1,140 @@
+programa prog;
+
+
+entero funcion calculaFactorialRecursivo(entero: numero) ;
+{
+   si ( numero == 0 ) entonces {
+      regresa( 1 );
+   } sino {
+      regresa ( calculaFactorialRecursivo( numero - 1 ) * numero );
+   }
+}
+
+entero funcion calculaFactorialIterativo() ;
+variables
+entero : fact [6], i;
+finVar
+{
+  fact [0] = 1;
+
+  desde i = 1 hasta 5 hacer {
+     fact [ i ] = i * fact [ i - 1 ];
+  }
+
+  regresa(fact [5]);
+}
+
+entero funcion fiboRecursivo(entero: numero) ;
+{
+   si (numero == 0) entonces {
+      regresa( 0 );
+   }
+   si( numero == 1) entonces {
+      regresa( 1 );
+   } sino {
+      regresa ( fiboRecursivo( numero - 1 ) +  fiboRecursivo( numero - 2 ) );
+   }
+}
+
+entero funcion fiboIterativo() ;
+variables
+entero : fibo [8], i;
+finVar
+{
+  fibo [0] = 1;
+  fibo [1] = 1;
+
+  desde i = 2 hasta 7 hacer {
+     fibo [ i ] = fibo [ i - 1 ] + fibo [ i - 2 ];
+  }
+
+  regresa(fibo [7]);
+}
+
+void funcion ordena() ;
+variables
+  entero: i, j, temp, arr [6];
+  finVar
+{
+  arr [0] = 6;
+  arr [1] = 5;
+  arr [2] = 4;
+  arr [3] = 3;
+  arr [4] = 2;
+  arr [5] = 1;
+
+  escribir("Arreglo sin ordenar");
+  desde i = 0 hasta 5 hacer {
+     escribir(arr [ i ]);
+  }
+
+  desde i = 0 hasta 4 hacer {
+    desde j = 0 hasta 4 hacer {
+        si (arr [ j ] > arr [ j + 1 ]) entonces {
+            temp = arr [ j ];
+            arr [ j ] =  arr [ j + 1 ];
+            arr [ j + 1 ] = temp;
+        }
+    }
+  }
+
+  escribir("Arreglo ordenado");
+  desde i = 0 hasta 5 hacer {
+     escribir(arr [ i ]);
+  }
+}
+
+void funcion busca(entero : numero) ;
+variables
+  entero: arr [6], i;
+  finVar
+{
+  arr [0] = 2;
+  arr [1] = 4;
+  arr [2] = 6;
+  arr [3] = 8;
+  arr [4] = 10;
+  arr [5] = 12;
+
+  desde i = 0 hasta 5 hacer {
+    si (arr [ i ] == numero ) entonces {
+       escribir("Se ha encontrado el numero en el indice ", i);
+    }
+  }
+
+}
+
+void funcion pintaCara (char : c, entero : g) ; {
+
+  color(c);
+  grosor(g);
+
+  penUp();
+  rotarIzquierda(180);
+  linea(100);
+  rotarIzquierda(90);
+  penDown();
+  arco(150, 180);
+
+  penUp();
+  rotarIzquierda(90);
+  linea(50);
+  rotarDerecha(90);
+  penDown();
+  linea(150);
+
+  rotarIzquierda(90);
+  penUp();
+  linea(190);
+  penDown();
+  rotarIzquierda(90);
+  linea(150);
+  penUp();
+  punto(35, 35);
+  penDown();
+  circulo(30);
+}
+
+principal() {
+  ordena();
+}
